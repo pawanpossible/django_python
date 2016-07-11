@@ -1,0 +1,48 @@
+{% extends "login\base.html" %}
+{% block title %}Welcome to MyApp{% endblock %}
+{% block head %}<h1>Welcome to MyApp</h1>{% endblock %}
+{% block content %}
+    <p>Welcome {{ user.username }} !!!</p>
+    <a href="/logout/">Logout</a>
+    <a href="/adduser/">Add Employee</a>
+    <a href="/adddepartment/">Add Department</a>
+    <a href="/deleteuser/">Delete Employee</a>
+    <a href="/deletedepartment/">Delete Department</a>
+    <br>
+    <br>
+    <br>
+    <br>
+{% if employee_list %} 
+    <table class="data_table">
+     <tr class="data_table">
+      <th class="data_table">Name</th>
+      <th class="data_table">DOJ</th>
+      <th class="data_table">Department</th>
+     </tr>
+    {% for data in employee_list %}
+        <tr class="data_table">
+        <td class="data_table">{{data.name}}</td>
+        <td class="data_table">{{data.date_of_joining}}</td>
+        <td class="data_table">{{data.dept.desc}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+<br>
+{% if department_list %} 
+    <table class="data_table">
+     <tr class="data_table">
+      <th class="data_table">Name</th>
+      <th class="data_table">Description</th>
+     </tr>
+    {% for data in department_list %}
+        <tr class="data_table">
+        <td class="data_table">{{data.name}}</td>
+        <td class="data_table">{{data.desc}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "login/base.html" %}
+{% block title %}User Department{% endblock %}
+{% block head %}User Department{% endblock %}
+{% block content %}
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Add Department" />
+    </form>
+    <a href="/home/">Home</a>
+    <a href="/logout/">Logout</a>
+{% endblock %}

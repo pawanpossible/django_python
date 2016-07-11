@@ -1,0 +1,8 @@
+body {
+    background: #E6E6FA !important; 
+}
+
+.data_table, .data_th, .data_td {
+   border: 1px solid black;
+   border-collapse: collapse;
+}

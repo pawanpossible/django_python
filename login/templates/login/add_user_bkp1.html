@@ -1,0 +1,26 @@
+{% extends "login/base.html" %}
+{% block title %}User Add{% endblock %}
+{% block head %}User Add{% endblock %}
+{% block content %}
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+          <tr><th><label for="id_name">Name:</label></th><td>{{ form.name }}</td></tr>
+          <tr><th><label for="id_doj">Date Of Joining:</label></th><td>{{ form.doj }}</td></tr>
+          <tr>
+           <th>
+            <label for="id_dep">Department:</label>
+          </th>
+          <td>
+            <select name = "{{form.dep}}">
+             {% for dep in department_list %}
+               <option value="{{dep.name}}">{{dep.name}}</option>
+             {% endfor %}
+            </select>
+          </td>
+         </tr>
+        </table>
+        <input type="submit" value="Add User" />
+    </form>
+    <a href="/home/">Home</a>
+    <a href="/logout/">Logout</a>
+{% endblock %}
